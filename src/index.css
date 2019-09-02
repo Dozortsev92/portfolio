@@ -151,3 +151,15 @@ img {
     color: #fff;
 }
 /* slick-projects */
+
+.project,
+.reviews__button {
+    margin-bottom: 20px;
+}
+.project__review__avatar img {
+    max-width: 100px;
+}
+.review__nickname {
+    font-weight: bold;
+    font-size: 16px;
+}
