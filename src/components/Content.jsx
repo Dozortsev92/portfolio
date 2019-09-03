@@ -1,6 +1,6 @@
 import React from 'react';
 import Projects from './projects/Projects';
-import Project from './projects/Project';
+import Project from './projects/Project/Project';
 import Home from './Home';
 import { Route } from 'react-router-dom';
 
@@ -17,8 +17,8 @@ const Content = (props) => {
                 </div>
             </div>
             <Route exact path='/' component={Home} />
-            <Route exact path='/projects' render={() => <Projects projects={props.data.projects} />} />
-            <Route exact path='/projects/:alias' render={(prop) => <Project {...prop} projects={props.data.projects} />} />
+            <Route exact path='/projects' render={() => <Projects projects={props.state.projects} />} />
+            <Route exact path='/projects/:alias' render={(prop) => <Project {...prop} projects={props.state.projects} addReview={props.addReview} />} />
         </div>
     );
 };

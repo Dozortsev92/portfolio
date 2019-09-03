@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectPreview from './ProjectPreview';
+import ProjectPreview from './Project/ProjectPreview';
 
 const ProjectsList = (props) => {
     let projectsElements = props.projects.map(project => <ProjectPreview key={project.id} project={project} />);
