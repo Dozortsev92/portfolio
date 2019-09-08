@@ -1,37 +1,43 @@
 import React from 'react';
 import Review from './Reviews/Review';
+import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/state";
 
 const Project = (props) => {
 
     /*find current project*/
     let currentProject = props.projects.find(project => project.alias === props.match.params.alias);
 
-    /* build project reviews*/
+    /* build the project reviews*/
     let reviews = '';
     let projectReviews = currentProject.reviews;
     if (projectReviews) {
         reviews = projectReviews.map(
-            review => <Review key={review.id} username={review.username}
-                              text={review.text}
-                              avatar={review.avatar} />
+            (review, index) => <Review key={index} username={review.username} text={review.text}
+                                       avatar={review.avatar}/>
         );
     }
 
     let textarea = React.createRef();
 
     let sendReview = () => {
-        console.log('send');
-        let newReview = {
-            username: 'Test User',
-            text: textarea.current.value,
-            avatar: '/images/avatars/ljoker.png',
-        };
+        if (textarea.current.value.length > 0) {
+            console.log('send');
+            let newReview = {
+                username: 'Test User',
+                text: currentProject.newReviewText,
+                avatar: '/images/avatars/ljoker.png',
+            };
 
-        props.addReview(newReview);
+            // props.store.addReview(newReview);
+            props.dispatch(addReviewCreator(newReview));
+
+            textarea.current.value = '';
+        }
     };
 
-    let writeReview = () => {
-        console.log('Tap');
+    let writeInTextarea = () => {
+        // props.store.updateNewReviewText(textarea.current.value);
+        props.dispatch(updateNewReviewTextCreator(textarea.current.value));
     };
     return (
         <div>
@@ -55,7 +61,9 @@ const Project = (props) => {
                     <div className="h2">Reviews</div>
                     <div className="row">
                         <div className="col-12">
-                            <textarea onInput={writeReview} className="reviews__textarea" name="review_new" cols="50" ref={textarea}></textarea>
+                            <textarea onChange={writeInTextarea} className="reviews__textarea" name="review_new"
+                                      cols="50"
+                                      ref={textarea} value={currentProject.newReviewText}></textarea>
                             <div className="reviews__button">
                                 <button onClick={sendReview}>Send review</button>
                             </div>

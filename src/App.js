@@ -12,7 +12,7 @@ function App(props) {
 			<div className="container-fluid">
 				<div className="row">
 					<Sidebar />
-					<Content state={props.state} addReview={props.addReview} />
+					<Content state={props.state} dispatch={props.dispatch} />
 				</div>
 			</div>
 		</BrowserRouter>

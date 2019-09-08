@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+
 import './dashboard_template/dashboard.css';
 import './index.css';
-import App from './App';
-import state from './redux/state.js';
-import {addReview} from './redux/state.js';
 
-let reRenderEntireTree = () => {
+import store from "./redux/state";
+
+const reRenderEntireTree = () => {
     ReactDOM.render(
-        <App state={state} addReview={addReview} />,
+        <App state={store.getState()} dispatch={store.dispatch.bind(store)} />,
         document.getElementById('root')
     );
+    console.log('rerender =)');
 };
 
 reRenderEntireTree();
+
+store.subscribe(reRenderEntireTree);

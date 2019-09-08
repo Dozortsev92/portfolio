@@ -18,7 +18,7 @@ const Content = (props) => {
             </div>
             <Route exact path='/' component={Home} />
             <Route exact path='/projects' render={() => <Projects projects={props.state.projects} />} />
-            <Route exact path='/projects/:alias' render={(prop) => <Project {...prop} projects={props.state.projects} addReview={props.addReview} />} />
+            <Route exact path='/projects/:alias' render={(prop) => <Project {...prop} projects={props.state.projects} dispatch={props.dispatch} />} />
         </div>
     );
 };
