@@ -5,16 +5,19 @@ import App from './App';
 import './dashboard_template/dashboard.css';
 import './index.css';
 
-import store from "./redux/state";
+import store from "./redux/redux-store";
 
-const reRenderEntireTree = () => {
+let reRenderEntireTree = (state) => {
     ReactDOM.render(
-        <App state={store.getState()} dispatch={store.dispatch.bind(store)} />,
+        <App state={state} dispatch={store.dispatch.bind(store)} store={store} />,
         document.getElementById('root')
     );
     console.log('rerender =)');
 };
 
-reRenderEntireTree();
+reRenderEntireTree(store.getState());
 
-store.subscribe(reRenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    reRenderEntireTree(state);
+});
