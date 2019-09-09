@@ -1,6 +1,6 @@
 import React from 'react';
 import Review from './Reviews/Review';
-import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/state";
+import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/projectReview-reducer";
 
 const Project = (props) => {
 
