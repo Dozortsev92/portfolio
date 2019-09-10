@@ -2,13 +2,11 @@ import React from 'react';
 import Review from './Reviews/Review';
 import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/projectReview-reducer";
 import Project from "./Project";
+import connect from "react-redux/lib/connect/connect";
 
-const ProjectContainer = (props) => {
+let mapStateToProps = (state, props) => {
+    let currentProject = state.projects.find(project => project.alias === props.match.params.alias);
 
-    /*find current project*/
-    let currentProject = props.projects.find(project => project.alias === props.match.params.alias);
-
-    /* build the project reviews*/
     let reviews = '';
     let projectReviews = currentProject.reviews;
     if (projectReviews) {
@@ -17,16 +15,20 @@ const ProjectContainer = (props) => {
                                        avatar={review.avatar}/>
         );
     }
-
-    let sendReview = (review) => {
-        props.dispatch(addReviewCreator(review));
+    return {
+        project: currentProject,
+        reviews: reviews,
     };
+};
 
-    let writeInTextarea = (text) => {
-        props.dispatch(updateNewReviewTextCreator(text));
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendReview: (review) => {dispatch(addReviewCreator(review))},
+        writeInTextarea: (text) => {dispatch(updateNewReviewTextCreator(text))},
     };
+};
 
-    return <Project project={currentProject} reviews={reviews} writeInTextarea={writeInTextarea} sendReview={sendReview} />
-}
+let ProjectContainer = connect(mapStateToProps, mapDispatchToProps)(Project);
+
 
 export default ProjectContainer;

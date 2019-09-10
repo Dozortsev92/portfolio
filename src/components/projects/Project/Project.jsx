@@ -15,9 +15,10 @@ const Project = (props) => {
         }
     };
 
-    let onWriteInTextarea = () => {
-        props.writeInTextarea(textarea.current.value);
+    let onWriteInTextarea = (e) => {
+        props.writeInTextarea(e.target.value);
     };
+
     return (
         <div>
             <div
