@@ -4,10 +4,10 @@ const Project = (props) => {
     let textarea = React.createRef();
 
     let onSendReview = () => {
-        if (textarea.current.value.length > 0) {
+        if (textarea.current.value.trim().length > 0) {
             let newReview = {
                 username: 'Test User',
-                text: props.project.newReviewText,
+                text: props.newReviewText,
                 avatar: '/images/avatars/ljoker.png',
             };
             props.sendReview(newReview);
@@ -43,7 +43,7 @@ const Project = (props) => {
                         <div className="col-12">
                             <textarea onChange={onWriteInTextarea} className="reviews__textarea" name="review_new"
                                       cols="50"
-                                      ref={textarea} value={props.project.newReviewText}>
+                                      ref={textarea} value={props.newReviewText}>
                             </textarea>
                             <div className="reviews__button">
                                 <button onClick={onSendReview}>Send review</button>

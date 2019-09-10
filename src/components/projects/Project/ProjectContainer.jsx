@@ -1,11 +1,11 @@
 import React from 'react';
-import Review from './Reviews/Review';
-import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/projectReview-reducer";
-import Project from "./Project";
 import connect from "react-redux/lib/connect/connect";
+import Review from './Reviews/Review';
+import Project from "./Project";
+import {addReviewCreator, updateNewReviewTextCreator} from "../../../redux/projectReview-reducer";
 
 let mapStateToProps = (state, props) => {
-    let currentProject = state.projects.find(project => project.alias === props.match.params.alias);
+    let currentProject = state.projects.projects.find(project => project.alias === props.match.params.alias);
 
     let reviews = '';
     let projectReviews = currentProject.reviews;
@@ -23,8 +23,12 @@ let mapStateToProps = (state, props) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        sendReview: (review) => {dispatch(addReviewCreator(review))},
-        writeInTextarea: (text) => {dispatch(updateNewReviewTextCreator(text))},
+        sendReview: (review) => {
+            dispatch(addReviewCreator(review))
+        },
+        writeInTextarea: (text) => {
+            dispatch(updateNewReviewTextCreator(text))
+        },
     };
 };
 
