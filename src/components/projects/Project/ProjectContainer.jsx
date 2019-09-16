@@ -18,12 +18,14 @@ let mapStateToProps = (state, props) => {
     return {
         project: currentProject,
         reviews: reviews,
+        newReviewText: state.projects.newReviewText,
     };
 };
 
 let mapDispatchToProps = (dispatch) => {
     return {
         sendReview: (review) => {
+            console.log(review);
             dispatch(addReviewCreator(review))
         },
         writeInTextarea: (text) => {

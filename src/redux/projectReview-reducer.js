@@ -88,7 +88,7 @@ const projectReviewReducer = (state = initialState, action) => {
         UPDATE_NEW_REVIEW_TEXT:
             return {
                 ...state,
-                newReviewText: ''
+                newReviewText: action.text,
             };
         default:
             return state;
