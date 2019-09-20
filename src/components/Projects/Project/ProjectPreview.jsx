@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ProjectPreview = (props) => {
-    let path = '/projects/';
+    let path = '/Projects/';
     return (
         <div className="slide col-md-4">
             <div className="project">

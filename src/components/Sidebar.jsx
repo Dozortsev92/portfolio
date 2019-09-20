@@ -30,6 +30,18 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink to="/reviews" className="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                 strokeLinejoin="round" className="feather feather-bar-chart-2">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                            Reviews
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink to="/link1" className="nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
@@ -63,18 +75,6 @@ const Sidebar = () => {
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                             Link 3
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/link4" className="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                strokeLinejoin="round" className="feather feather-bar-chart-2">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                            Link 4
                         </NavLink>
                     </li>
                 </ul>

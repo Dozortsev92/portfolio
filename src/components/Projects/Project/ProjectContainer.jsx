@@ -25,7 +25,6 @@ let mapStateToProps = (state, props) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         sendReview: (review) => {
-            console.log(review);
             dispatch(addReviewCreator(review))
         },
         writeInTextarea: (text) => {

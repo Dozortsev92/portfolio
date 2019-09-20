@@ -103,7 +103,7 @@ img {
 }
 
 
-/* projects */
+/* Projects */
 .projects {
     margin-left: -9px;
     margin-right: -9px;
@@ -150,7 +150,7 @@ img {
     background: #6aa527;
     color: #fff;
 }
-/* slick-projects */
+/* slick-Projects */
 
 .project,
 .reviews__button {
@@ -162,4 +162,14 @@ img {
 .review__nickname {
     font-weight: bold;
     font-size: 16px;
+}
+.liked {
+    background: #33f103;
+}
+.disliked {
+    background: #f70000;
+}
+.liked,
+.disliked {
+    color: #fff;
 }

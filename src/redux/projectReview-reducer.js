@@ -4,7 +4,7 @@ const ADD_REVIEW = 'ADD-REVIEW';
 let initialState = {
     projects: [
         {
-            id: 1,
+            id: 11,
             alias: 'project-1',
             year: 2003,
             title: 'Проект “Ласточка”',
@@ -26,7 +26,7 @@ let initialState = {
             ],
         },
         {
-            'id': 2,
+            'id': 22,
             'alias': 'project-2',
             'year': 2002,
             'title': 'Проект “Ласточка 1”',
@@ -36,7 +36,7 @@ let initialState = {
             'description': 'La la la description 222'
         },
         {
-            'id': 3,
+            'id': 33,
             'alias': 'project-3',
             'year': 2004,
             'title': 'Проект “Милино 1',
@@ -46,7 +46,7 @@ let initialState = {
             'description': 'La la la description 333'
         },
         {
-            'id': 4,
+            'id': 44,
             'alias': 'project-4',
             'year': 2001,
             'title': 'Проект “Милино 2',
@@ -56,7 +56,7 @@ let initialState = {
             'description': 'La la la description 444'
         },
         {
-            'id': 5,
+            'id': 55,
             'alias': 'project-5',
             'year': 2005,
             'title': 'Проект “Милино 3',
