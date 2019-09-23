@@ -1,6 +1,6 @@
 import React from 'react';
 import Reviews from "./Reviews";
-import connect from "react-redux/lib/connect/connect";
+import {connect} from "react-redux";
 import {dislikeAC, likeAC, removeOpinionAC} from "../../redux/allReviews-reducer";
 
 let mapStateToProps = (state) => {
