@@ -2,8 +2,6 @@ const ADD_ARTICLES = 'ADD_ARTICLES';
 
 let initialState = {
     articles: [],
-    limit: 4,
-    startPage: 1,
 }
 
 const articlesReducer = (state = initialState, action) => {
@@ -18,6 +16,6 @@ const articlesReducer = (state = initialState, action) => {
     }
 };
 
-export const updateArticlesAC = (articles) => ({type: ADD_ARTICLES, articles});
+export const updateArticles = (articles) => ({type: ADD_ARTICLES, articles});
 
 export default articlesReducer;

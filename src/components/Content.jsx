@@ -5,6 +5,8 @@ import ProjectContainer from "./Projects/Project/ProjectContainer";
 import ReviewsContainer from "./Reviews/ReviewsContainer";
 import ArticlesContainer from "./Articles/ArticlesContainer";
 import Projects from './Projects/Projects';
+import ArticleContainer from "./Article/ArticleContainer";
+import GalleryContainer from "./Gallery/GalleryContainer";
 
 const Content = () => {
     return (
@@ -21,7 +23,9 @@ const Content = () => {
             <Route exact path='/projects' render={() => <Projects/>}/>
             <Route exact path='/articles' render={() => <ArticlesContainer/>}/>
             <Route exact path='/reviews' render={() => <ReviewsContainer/>}/>
+            <Route exact path='/gallery' render={() => <GalleryContainer/>}/>
             <Route exact path='/projects/:alias' render={(prop) => <ProjectContainer {...prop}/>}/>
+            <Route exact path='/articles/:alias' render={() => <ArticleContainer/>}/>
         </div>
     );
 };

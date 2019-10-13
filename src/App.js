@@ -2,10 +2,11 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
+import {BrowserRouter} from "react-router-dom";
 
 let App = () => {
     return (
-        <div>
+        <BrowserRouter>
             <Navbar/>
             <div className="container-fluid">
                 <div className="row">
@@ -13,7 +14,7 @@ let App = () => {
                     <Content/>
                 </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 };
 

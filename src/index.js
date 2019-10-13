@@ -6,15 +6,12 @@ import './dashboard_template/dashboard.css';
 import './index.css';
 
 import store from "./redux/redux-store";
-import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
-    <BrowserRouter>
         <Provider store={store}>
             <App/>
-        </Provider>
-    </BrowserRouter>,
+        </Provider>,
     document.getElementById('root')
 );
 

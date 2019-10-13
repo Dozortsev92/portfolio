@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Articles from "./Articles";
-import {updateArticlesAC} from "../../redux/articles-reducer";
+import {updateArticles} from "../../redux/articles-reducer";
 import * as axios from "axios";
 
 class ArticlesContainer extends React.Component {
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/comments?postId=1')
+        axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(response => this.props.updateArticles(response.data));
     }
 
@@ -26,7 +26,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         updateArticles: (articles) => {
-            dispatch(updateArticlesAC(articles))
+            dispatch(updateArticles(articles))
         },
     };
 };
