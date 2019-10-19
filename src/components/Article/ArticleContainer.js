@@ -1,13 +1,14 @@
 import React from 'react';
-import * as axios from "axios";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {updateArticle} from "../../redux/article-reducer";
 import Article from "./Article";
+import {getOnePost} from "../api/api";
+import {compose} from "redux";
 
 class ArticleContainer extends React.Component {
     componentDidMount() {
-        axios.get(`https://jsonplaceholder.typicode.com/posts/` + this.props.match.params.alias)
+        getOnePost(this.props.match.params.alias)
             .then(response => {
                     this.props.updateArticle(response.data);
                 }
@@ -25,6 +26,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-let ArticleContainerWithPath = withRouter(ArticleContainer);
-
-export default connect(mapStateToProps, {updateArticle})(ArticleContainerWithPath);
+export default compose(
+    connect(mapStateToProps, {updateArticle}),
+    withRouter
+)(ArticleContainer);

@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {updateGallery} from "../../redux/gallery-redux";
-import * as axios from "axios";
 import {NavLink} from "react-router-dom";
+import {getAlbums} from "../api/api";
 
 
 class GalleryContainer extends React.Component {
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/albums')
+        getAlbums()
             .then(response => this.props.updateGallery(response.data));
     }
 
@@ -15,7 +15,11 @@ class GalleryContainer extends React.Component {
         return (
             this.props.gallery.albums ?
                 this.props.gallery.albums.map(album => {
-                    return <div key={album.id}><NavLink to={'/gallery/' + album.id}>{album.title}</NavLink></div>
+                    return (
+                        <div key={album.id}>
+                            <NavLink to={'/gallery/' + album.id}>{album.title}</NavLink>
+                        </div>
+                    );
                 })
                 : 'no albums'
         )

@@ -15,6 +15,8 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
+window.state = store.getState();
+
 store.subscribe(() => {
     console.log('rerender =)');
 });

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "projectId": 11,
+    "username": "Lego Batman",
+    "text": "Great house. Amazing!",
+    "avatar": "/images/avatars/lbat2.png",
+    "likes": 321,
+    "dislikes": 2,
+    "opinion": "like"
+  },
+  {
+    "id": 2,
+    "projectId": 33,
+    "username": "Lego Superman",
+    "text": "Nice project. So beautiful!!!",
+    "avatar": "/images/avatars/lsup.png",
+    "likes": 10,
+    "dislikes": 11,
+    "opinion": "dislike"
+  },
+  {
+    "id": 3,
+    "projectId": 33,
+    "username": "Lego Joker",
+    "text": "Fun project. So cool!",
+    "avatar": "/images/avatars/ljoker.png",
+    "likes": 12,
+    "dislikes": 2,
+    "opinion": "like"
+  },
+  {
+    "id": 4,
+    "projectId": 33,
+    "username": "Lego Superman",
+    "text": "Nice project. So beautiful!!!",
+    "avatar": "/images/avatars/lsup.png",
+    "likes": 13,
+    "dislikes": 3,
+    "opinion": null
+  },
+  {
+    "id": 5,
+    "projectId": 44,
+    "username": "Lego Superman",
+    "text": "Nice project. So beautiful!!!",
+    "avatar": "/images/avatars/lsup.png",
+    "likes": 14,
+    "dislikes": 4,
+    "opinion": null
+  },
+  {
+    "id": 6,
+    "projectId": 44,
+    "username": "Lego Superman",
+    "text": "Nice project. So beautiful!!!",
+    "avatar": "/images/avatars/lsup.png",
+    "likes": 15,
+    "dislikes": 5,
+    "opinion": null
+  }
+]

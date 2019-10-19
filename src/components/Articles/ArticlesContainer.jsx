@@ -2,11 +2,11 @@ import React from 'react';
 import {connect} from "react-redux";
 import Articles from "./Articles";
 import {updateArticles} from "../../redux/articles-reducer";
-import * as axios from "axios";
+import {getPosts} from "../api/api";
 
 class ArticlesContainer extends React.Component {
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        getPosts()
             .then(response => this.props.updateArticles(response.data));
     }
 
