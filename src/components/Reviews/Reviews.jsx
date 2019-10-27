@@ -1,30 +1,37 @@
 import React from 'react';
+import {Button, Card} from 'antd';
 
-let Reviews = (props) => {
-    let like = e => props.like(e.target.id);
-    let dislike = e => props.dislike(e.target.id);
-    let remove = e => props.removeOpinion(e.target.id);
+let Reviews = props => {
+    const like = e => props.like(e.target.id);
+    const dislike = e => props.dislike(e.target.id);
+    const remove = e => props.removeOpinion(e.target.id);
 
     let reviews = props.reviews.map((review, index) => {
+        const {avatar, username, text, opinion, id, likes, dislikes} = review;
         return (
-            <div key={index} className="row">
-                <div className="col-md-2">
-                    <p><img src={review.avatar} alt={review.username} style={{maxWidth: 100}}/></p>
+            <Card key={index}>
+                <div className="row">
+                    <div className="col-md-2">
+                        <p><img src={avatar} alt={username} style={{maxWidth: 100}}/></p>
+                    </div>
+                    <div className="col-md-10">
+                        <p><b>Username</b>: {username}</p>
+                        <p><b>Text</b>: {text}</p>
+                        <p>
+                            <Button type={opinion === 'like' ? 'primary' : 'default'}
+                                    id={id}
+                                    onClick={opinion === 'like' ? remove : like}>
+                                like({likes})
+                            </Button>
+                            <Button type={opinion === 'dislike' ? 'danger' : 'default'}
+                                    id={id}
+                                    onClick={opinion === 'dislike' ? remove : dislike}>
+                                dislike({dislikes})
+                            </Button>
+                        </p>
+                    </div>
                 </div>
-                <div className="col-md-10">
-                    <p><b>Username</b>: {review.username}</p>
-                    <p><b>Text</b>: {review.text}</p>
-                    <p>
-                        <button className={review.opinion === 'like' ? 'liked' : ''} id={review.id}
-                                onClick={review.opinion === 'like' ? remove : like}>like({review.likes})
-                        </button>
-                        &nbsp;
-                        <button className={review.opinion === 'dislike' ? 'disliked' : ''} id={review.id}
-                                onClick={review.opinion === 'dislike' ? remove : dislike}>dislike({review.dislikes})
-                        </button>
-                    </p>
-                </div>
-            </div>
+            </Card>
         );
     });
 

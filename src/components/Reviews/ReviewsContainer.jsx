@@ -1,8 +1,8 @@
 import React from 'react';
 import Reviews from "./Reviews";
 import {connect} from "react-redux";
-import {dislike, like, removeOpinion, updateReviews, updateReviewsThunk} from "../../redux/reviews-reducer";
-import {getReviews} from "../api/api";
+import * as reviewsActions from "../../redux/reviews-reducer";
+import {bindActionCreators} from "redux";
 
 class ReviewsContainer extends React.Component {
     componentDidMount() {
@@ -10,23 +10,22 @@ class ReviewsContainer extends React.Component {
     }
 
     render() {
-        return (
-            !this.props.reviews
-                ? ''
-                : <Reviews
-                    reviews={this.props.reviews.reviews}
-                    like={this.props.like}
-                    dislike={this.props.dislike}
-                    removeOpinion={this.props.removeOpinion}
-                    updateReviews={this.props.updateReviews} />
-        )
+        let {reviews, like, dislike, removeOpinion, updateReviews} = this.props;
+        if (reviews)
+            return (
+                <Reviews reviews={reviews.reviews}
+                         like={like}
+                         dislike={dislike}
+                         removeOpinion={removeOpinion}
+                         updateReviews={updateReviews}/>
+            )
     }
 }
 
-let mapStateToProps = (state) => {
-    return {
-        reviews: state.reviews,
-    };
-};
+const mapStateToProps = state => ({reviews: state.reviews});
 
-export default connect(mapStateToProps, {like, dislike, removeOpinion, updateReviews, updateReviewsThunk})(ReviewsContainer);
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators(reviewsActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer);

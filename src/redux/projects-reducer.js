@@ -1,3 +1,5 @@
+import {getProjects} from "../components/api/api";
+
 const UPDATE_PROJETS = 'UPDATE_PROJETS';
 
 let initialState = {
@@ -16,6 +18,11 @@ const projectsReducer = (state = initialState, action) => {
     }
 }
 
-export const updateProjects = (projects) => ({type: UPDATE_PROJETS, projects});
+export const updateProjects = projects => ({type: UPDATE_PROJETS, projects});
+
+export const getAllProjectsThunk = () => dispatch => {
+    getProjects()
+        .then(({data}) => dispatch(updateProjects(data)));
+};
 
 export default projectsReducer;

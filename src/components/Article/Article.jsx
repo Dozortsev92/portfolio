@@ -1,12 +1,13 @@
 import React from 'react';
 
-let Article = (props) => {
+let Article = props => {
+    const {id, userId, title, body} = props.article;
     return (
         <div>
-            <h3>id: {props.article.id}</h3>
-            <h3>userId: {props.article.userId}</h3>
-            <b>Title: {props.article.title}</b>
-            <p>{props.article.body}</p>
+            <h3>id: {id}</h3>
+            <h3>userId: {userId}</h3>
+            <b>Title: {title}</b>
+            <p>{body}</p>
         </div>
     )
 };

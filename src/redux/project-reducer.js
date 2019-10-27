@@ -1,8 +1,8 @@
+import {getProjects} from "../components/api/api";
+
 let UPDATE_PROJECT = 'UPDATE_PROJECT';
 
-const initialState = {
-
-};
+const initialState = {};
 
 const projectReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -13,6 +13,12 @@ const projectReducer = (state = initialState, action) => {
     }
 };
 
-export const getProject = (project) => ({type: UPDATE_PROJECT, project});
+export const updateProject = project => ({type: UPDATE_PROJECT, project});
+
+export const getTheProjectThunk = alias => dispatch => {
+    getProjects()
+        .then(({data}) => data.filter(el => el.alias === alias))
+        .then(project => dispatch(updateProject(project[0])));
+};
 
 export default projectReducer;
